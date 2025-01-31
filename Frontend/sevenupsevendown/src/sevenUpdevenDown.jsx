@@ -39,7 +39,7 @@ const rollDiceHandler=async ()=>{
             sumOfDice
         });
 
-
+        //Displays the result after the dice roll completes
         setTimeout(()=>{
             setPointsOfPlayer(rollResponseResult.data.playerbalance);
             setDisplayMessage(`You won ${rollResponseResult.data.winnings} points`);
@@ -60,6 +60,7 @@ console.log(gameStatus,'gamestatus');
 }
 
 return(
+    //used Box and Card layout from the @materialUI
 <Box component="section" sx={{height:"100vh",backgroundColor:"#f4f4f4"}}>
 <Card sx={{ maxWidth: 450, height:"100%", textAlign: "center", boxShadow: 3 }}>
 <CardContent>
@@ -97,7 +98,7 @@ return(
 
 
             <Box sx={{mt:3, display: "flex", justifyContent: "center", gap: 5 }}>
-            
+            {/* This is the NPM package which is react-dice-roll */}
             <Dice ref={diceRef1} size={55}/>
             <Dice ref={diceRef2} size={55}/>
 
@@ -130,8 +131,14 @@ return(
             )}
 
             {gameStatus=="Lost" &&(
-                 <div>
-                 <Typography variant="h4" >You Lost 😞</Typography>
+                 <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                 <img src={LostImg} alt="You Lost"
+                       style={{width:"100%",
+                        maxWidth:"300px",
+                        height:"200px",
+                        objectFit:"contain",
+                    
+                       }}/>
              </div>
             )}
           </Box>

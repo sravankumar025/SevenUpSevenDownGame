@@ -8,6 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 
+//This is the api call for generating two dice numbers and the sum of the numbers
 app.get("/diceroll",(req,res)=>{
     const firstDice=random.integer(1,6);
     const secondDice=random.integer(1,6);
@@ -16,7 +17,9 @@ app.get("/diceroll",(req,res)=>{
     res.json({firstDice,secondDice,sumOfDice});
 })
 
+
 let playerInitialPoints=5000;
+//This is the api call the player result which results in win or lost based on the ber amount and sum of the dice number
 app.post("/playerbettingresult",(req,res)=>{
     const {bettingAmount,userChoice,sumOfDice}=req.body;
     console.log(req.body);
@@ -28,6 +31,9 @@ app.post("/playerbettingresult",(req,res)=>{
     }
     let winningAmount=0;
     let isWin=false;
+    //Here player starts with initial 5000 points and if he starts betting with 200 amount and selected 7Down
+    //The bet amount will be deducted from 5000 points --
+    //if he wins he gets double which is 400 which becomes 5200 of total
     playerInitialPoints-=bettingAmount;
 
     if((userChoice=='SevenUp' && sumOfDice>7) || (userChoice=='SevenDown' && sumOfDice<7)){
@@ -45,5 +51,7 @@ app.post("/playerbettingresult",(req,res)=>{
             isWin:isWin,
           message:isWin?"You Won!":"You Lost"})
 })
+
+//Server to start at a port 8080
 const port=8080;
 app.listen(port,()=>console.log('Server Started'));
