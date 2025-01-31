@@ -3,3 +3,5 @@ This is a dice game where the host throws the dice and the players bet on 3 numb
 
 
 ![image](https://github.com/user-attachments/assets/fba9650b-85f0-47df-a173-cf86f0d6f155)
+
+![image](https://github.com/user-attachments/assets/cd1efe76-9181-4882-821e-c40ae5fd24b0)
