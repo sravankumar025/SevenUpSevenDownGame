@@ -19,7 +19,7 @@ app.get("/diceroll",(req,res)=>{
 
 
 let playerInitialPoints=5000;
-//This is the api call the player result which results in win or lost based on the ber amount and sum of the dice number
+//This is the api call for the player result which results in win or lost based on the bet amount and sum of the dice number
 app.post("/playerbettingresult",(req,res)=>{
     const {bettingAmount,userChoice,sumOfDice}=req.body;
     console.log(req.body);
